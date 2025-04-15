@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: laravel-store
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    buildCommand: "composer install && php artisan key:generate && php artisan migrate --force"
+    startCommand: "php artisan serve --host=0.0.0.0 --port=10000"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: https://laravel-store.onrender.com # Replace with your actual Render URL after it's created
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        fromDatabase:
+          name: laravel-mysql
+          property: host
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        fromDatabase:
+          name: laravel-mysql
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: laravel-mysql
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: laravel-mysql
+          property: password
+
+databases:
+  - name: laravel-mysql
+    databaseName: laravel_db
+    user: laravel_user
+    plan: free
+    region: oregon
