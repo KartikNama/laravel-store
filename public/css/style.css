@@ -1,0 +1,47 @@
+.bg-body-tertiary{
+    background-color: black !important;
+}
+
+.nav-item a{
+    color: #fff !important;
+}
+.logo-img{
+    width: 150px;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+.dropdown-menu{
+    background-color: black !important;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-toggle::after{
+    display: none;
+}
+.dropdown{
+    display: none;
+}
+.card-img-top{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.head-center{
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+.product-self{
+    border: 1px solid black;
+    padding: 10px;
+    list-style: none;
+}
+
